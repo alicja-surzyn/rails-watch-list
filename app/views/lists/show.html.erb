@@ -1,10 +1,36 @@
-<p>
-    <strong>Title:</strong>
-    <%= @list.name %>
-     <% @list.bookmarks.each do |bookmark| %>
-     <%= bookmark.movie.title  %>
-     <%= bookmark.movie.overview  %>
-     <%= bookmark.movie.poster_url  %>
-     <%= bookmark.comment  %>
-     <% end %>
-  </p>
+<div class="container">
+    <h1><%= @list.name %></h1>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row my-3">
+    <% @list.bookmarks.each do |bookmark| %>
+      <div class="col-12 col-md-4">
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= bookmark.movie.poster_url %>')">
+          <%= bookmark.movie.title  %>
+
+          <%= link_to '+', bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'card-remove-link' %>
+        </div>
+        <p> <%= bookmark.movie.overview  %> </p>
+        <strong>Comments</strong>
+        <p><%= bookmark.comment  %></p>
+      </div>
+    <% end %>
+  </div>
+
+
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <h1>Add a bookmark</h1>
+
+      <%= simple_form_for [@list, @bookmark] do |f| %>
+        <%= f.input :comment %>
+        <%= f.association :movie %>
+        <%= f.association :list %>
+        <%= f.button :submit %>
+      <% end %>
+    </div>
+  </div>
+
+</div>

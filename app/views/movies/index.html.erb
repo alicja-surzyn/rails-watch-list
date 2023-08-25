@@ -1,10 +1,18 @@
-<h1>Movies</h1>
+<div class="container">
+    <h1><%= "MOVIES" %></h1>
+  </div>
+</div>
 
-  <ul>
+<div class="container">
+  <div class="row my-3">
     <% @movies.each do |movie| %>
-      <li><%= link_to movie.title, movie_path(movie) %></li>
-      <li><%= movie.overview %></li>
-      <img src = "<%= movie.poster_url %>" />
-      <li><%= movie.rating %></li>
+      <div class="col-12 col-md-4">
+        <img src="movie.poster_url" alt="movie">
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
+          <%= link_to movie.title, movie_path(movie) %>
+          <%= movie.overview  %>
+          <%= movie.rating %>
+        </div>
+      </div>
     <% end %>
-  </ul>
+  </div>
