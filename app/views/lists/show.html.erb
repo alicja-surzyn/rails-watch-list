@@ -1,0 +1,10 @@
+<p>
+    <strong>Title:</strong>
+    <%= @list.name %>
+     <% @list.bookmarks.each do |bookmark| %>
+     <%= bookmark.movie.title  %>
+     <%= bookmark.movie.overview  %>
+     <%= bookmark.movie.poster_url  %>
+     <%= bookmark.comment  %>
+     <% end %>
+  </p>
