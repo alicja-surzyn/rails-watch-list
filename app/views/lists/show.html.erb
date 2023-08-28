@@ -1,6 +1,6 @@
-<div class="container">
-    <h1><%= @list.name %></h1>
-  </div>
+
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pexels.com%2Fsearch%2Fmovie%2520theatre%2F&psig=AOvVaw06JrmBTSFqBlEdMiOScp_h&ust=1693273871680000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCNiT8u6e_oADFQAAAAAdAAAAABAI)">
+  <h1> <%= @list.name %> </h1>
 </div>
 
 <div class="container">
@@ -19,6 +19,9 @@
     <% end %>
   </div>
 
+<div><%= cl_image_tag("https://res.cloudinary.com/dphmxctaq/image/upload/v1693183942/cld-sample-5.jpg",
+      width: 400, height: 300, crop: :fill)
+       %></div>
 
   <div class="row justify-content-center">
     <div class="col-4">
